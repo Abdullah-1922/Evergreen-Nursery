@@ -1,13 +1,14 @@
 import { Router } from 'express';
-import { UserRoutes } from '../module/User/user.route';
+import { ProductRoute } from '../module/Product/product.route';
+
 
 
 const router = Router();
 
 const moduleRoutes = [
   {
-    path: '/users',
-    route: UserRoutes,
+    path: '/product',
+    route: ProductRoute,
   },  // This is a sample replace it with your actual path and route.
   // Todo add necessary path and route in this array
 ];
