@@ -10,13 +10,16 @@ const productSchema = new Schema<TProduct>(
     category: { type: String, required: true },
     stock: { type: Number, required: true },
     image: { type: String, required: true },
+    rating: { type: Number, required: true },
+    brand: { type: String, required: true },
     status: {
       type: String,
       enum: ["OUT-OF-STOCK", "IN-STOCK"],
       default: "IN-STOCK",
     },
+    isDeleted:{type:Boolean,default:false ,required:true}
   },
-  { versionKey: false }
+  { versionKey: false,timestamps:true }
 );
 
 export const Product = model<TProduct>("Product", productSchema);

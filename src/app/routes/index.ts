@@ -7,7 +7,7 @@ const router = Router();
 
 const moduleRoutes = [
   {
-    path: '/product',
+    path: '/products',
     route: ProductRoute,
   },  // This is a sample replace it with your actual path and route.
   // Todo add necessary path and route in this array
