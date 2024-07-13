@@ -53,7 +53,18 @@ class QueryBuilder<T> {
 
     if (this.query.stock) {
       queryObj.status = {};
+
       (queryObj.status as any).$ne = "OUT-OF-STOCK";
+    }
+
+    if (this.query.category) {
+      queryObj.category = {};
+      const reMakeCategory = (this.query.category as string)
+        .toString()
+        .replace(",", " ");
+
+ 
+      (queryObj.category as any).$eq = reMakeCategory;
     }
 
     this.modelQuery = this.modelQuery.find(queryObj as FilterQuery<T>);
@@ -70,12 +81,14 @@ class QueryBuilder<T> {
   }
 
   paginate() {
-    const page = Number(this?.query?.page) | 1;
-    const limit = Number(this?.query?.limit) || 9999;
+    const page = Number(this.query.page) || 1;
+    const limit = Number(this.query.limit) || 9999;
     const skip = (page - 1) * limit;
-
-    this.modelQuery = this.modelQuery?.skip(skip)?.limit(limit);
+ 
+    this.modelQuery = this.modelQuery.skip(skip).limit(limit);
     return this;
+
+
   }
 
   fields() {
@@ -98,6 +111,9 @@ class QueryBuilder<T> {
       totalPage,
     };
   }
+
+
+  
 }
 
 export default QueryBuilder;

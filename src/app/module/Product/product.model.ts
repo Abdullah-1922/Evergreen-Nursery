@@ -17,7 +17,7 @@ const productSchema = new Schema<TProduct>(
       enum: ["OUT-OF-STOCK", "IN-STOCK"],
       default: "IN-STOCK",
     },
-    isDeleted:{type:Boolean,default:false ,required:true}
+
   },
   { versionKey: false,timestamps:true }
 );
