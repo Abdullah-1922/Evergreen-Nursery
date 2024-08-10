@@ -13,7 +13,7 @@ const createProduct = async (payload: TProduct) => {
 };
 const getAllProduct = async (query: Record<string, unknown>) => {
   const productQuery = new QueryBuilder(Product.find(), query)
-    .search(["description", "name"])
+    .search([ "name"])
     .filter()
     .sort()
     .paginate()
