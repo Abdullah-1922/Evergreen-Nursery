@@ -1,18 +1,20 @@
-import { Router } from 'express';
-import { ProductRoute } from '../module/Product/product.route';
-
-
+import { Router } from "express";
+import { ProductRoute } from "../module/Product/product.route";
+import { CategoryRoute } from "../module/Category/category.route";
 
 const router = Router();
 
 const moduleRoutes = [
   {
-    path: '/products',
+    path: "/products",
     route: ProductRoute,
-  },  // This is a sample replace it with your actual path and route.
-  // Todo add necessary path and route in this array
+  },
+
+  {
+    path: "/category",
+    route: CategoryRoute,
+  },
 ];
 
-moduleRoutes.forEach((route) => router.use(route.path, route.route));  // This will automatically loop your routes that you will add in the moduleRoutes array
-
+moduleRoutes.forEach((route) => router.use(route.path, route.route));
 export default router;

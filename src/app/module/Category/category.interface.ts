@@ -1,1 +1,3 @@
-export type TCategory = string
+export type TCategory = {
+    category :string[]
+}

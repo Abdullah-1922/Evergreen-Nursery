@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { plantCategories } from "./product.constant";
+
 
 const createProductValidation = z.object({
   body: z.object({
@@ -25,7 +25,7 @@ const createProductValidation = z.object({
       .positive({ message: "Price must be a positive number" })
       .max(100000),
 
-    category: z.enum(plantCategories as [string, ...string[]]),
+    category: z.string(),
     stock: z
       .number({
         required_error: "Stock is required",
@@ -78,7 +78,7 @@ const updateProductValidation = z.object({
       .positive({ message: "Price must be a positive number" })
       .optional(),
 
-    category: z.enum(plantCategories as [string, ...string[]]).optional(),
+    category: z.string().optional(),
     stock: z
       .number({
         required_error: "Stock is required",

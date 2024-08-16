@@ -1,8 +1,7 @@
-import catchAsync from "../../utils/catchAsync";
+import { model, Schema } from "mongoose";
+import { TCategory } from "./category.interface";
 
-const createCategory = catchAsync(
-    async(req,res)=>{
-        
-    }
-)
-// export const categoryColtrollers
+const categorySchema = new Schema<TCategory>({
+    category:{type:[String],required:true }
+})
+export const Category= model<TCategory>('Category',categorySchema)
